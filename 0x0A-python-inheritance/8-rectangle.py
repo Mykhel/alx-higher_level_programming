@@ -1,35 +1,27 @@
 #!/usr/bin/python3
-"""Integer validator
-Author: Kanneh
+# class 'Rectangle' that inherits from,
+# 'BaseGeometry' (7-base_geometry.py)
+"""
+    define a class 'Rectangle' inheriting from 'BaseGeometry'
 """
 
-
-class BaseGeometry:
-    """A Base Geometry class"""
-
-    def area(self):
-        """Raises an exception because...
-        area is not implemented
-        """
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """Validates the inputs: name and values
-        Args:
-            name(str) - input name as string
-            value(int): pararams validator
-        """
-        if type(value) not in [int]:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """A class Rectangle that inherits from BaseGeometry"""
+    """
+        representation of 'Rectangle'
+    """
 
     def __init__(self, width, height):
-        """Instantiation of width and height"""
-        self.integer_validator(width, height)
+        """
+            intialize a new 'Rectangle'
+            Args:
+                width (int): width of the new rectangle
+                height (int): height of the new rectangle
+        """
+
+        self.integer_validator("width", width)
         self.__width = width
+        self.integer_validator("height", height)
         self.__height = height
